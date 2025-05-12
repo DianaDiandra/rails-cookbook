@@ -13,9 +13,8 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   resources :categories, only: [:index, :show, :new, :create] do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:new, :create, :destroy]
   end
-  resources :bookmark, only: [:destroy]
   # Defines the root path route ("/")
   # root "posts#index"
 end
