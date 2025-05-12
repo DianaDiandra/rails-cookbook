@@ -1,0 +1,12 @@
+<div class="container py-5">
+  <h1>Bookmarks</h1>
+  <p>Add Recipe to <%= @category.name %></p>
+  <%= simple_form_for [@category, @bookmark] do |f| %>
+    <div class="form-group">
+      <%= f.input :comment %>
+      <%= f.association :recipe, prompt: "Select Recipe" %>
+    </div>
+    <%= f.submit "Add Recipe", class: 'btn btn-primary' %>
+  <% end %>
+  <%= link_to '← Back to Category', category_path(@category), class: 'btn btn-secondary mt-3' %>
+</div>
