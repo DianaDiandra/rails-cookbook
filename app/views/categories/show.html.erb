@@ -1,0 +1,10 @@
+<h1 class="mb-4"><%= @category.name %>
+<div class="container mb-5">
+  <div class="d-flex justify-content-between my-4">
+   <span class="mb-2 d-block"><small><%= "You haven't saved any recipes yet!" if @category.recipes.empty? %></small></span>
+    <div>
+      <%# <%= link_to "Add a recipe", new_recipe_path(category_id: @category.id), class: 'btn btn-flat' %>
+      <%= link_to "New category", new_category_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+</div>
