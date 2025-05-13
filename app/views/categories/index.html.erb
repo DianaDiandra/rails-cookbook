@@ -16,7 +16,7 @@
       <% @categories.each do |category| %>
         <div class="col">
           <div class="category-grid position-relative text-center text-white"
-               style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg');">
+            style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg');">
             <div class="category-content">
               <%= link_to category.name, category_path(category), class: "category-link stretched-link" %>
               <p class="mb-0"><%= category.bookmarks.count %> recipes</p>

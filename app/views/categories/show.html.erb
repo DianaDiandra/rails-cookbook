@@ -1,24 +1,52 @@
-<h1 class="mb-4"><%= @category.name %></h1>
-
-<div class="container mb-5">
-  <ul>
-    <% @category.bookmarks.each do |bookmark| %>
-      <% if bookmark.recipe.present? %>
-        <li>
-          <h3><%= bookmark.recipe.name %></h3>
-          <p><%= bookmark.recipe.description %></p>
-          <p><%= bookmark.comment%></p>
-          <%= link_to 'Remove', category_bookmark_path(@category, bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-        </li>
-      <% else %>
-        <p>You haven't saved any recipes yet!</p>
-      <% end %>
-    <% end %>
-  </ul>
-  <div>
-    <%= link_to "Add a recipe", new_category_bookmark_path(@category), class: 'btn btn-flat' %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+  <div class="text-center">
+    <h1 class="mb-4"><%= @category.name %></h1>
   </div>
-  <div>
-    <%= link_to 'Back to cookbook', categories_path, class: 'btn btn-secondary mt-3' %>
+</div>
+
+<div class="container mt-5 mb-5">
+  <div class="list-info d-flex justify-content-between align-items-center mt-5 mb-4">
+    <h3 class="list-info-text mb-0">Recipes</h3>
+    <div class="d-flex gap-2">
+      <%= link_to "Add a recipe", new_category_bookmark_path(@category), class: "btn btn-category" %>
+      <%= link_to "Back to cookbook", categories_path, class: "btn btn-category" %>
+    </div>
+  </div>
+
+  <div class="recipe-cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% @category.bookmarks.each do |bookmark| %>
+        <% if bookmark.recipe.present? %>
+          <div class="col">
+            <div class="category-grid position-relative text-center text-white"
+              style="background-image: url('<%= bookmark.recipe.image_url %>');">
+              <div class="category-content d-flex flex-column justify-content-between h-100">
+                <div>
+                  <h3><%= bookmark.recipe.name %></h3>
+                  <p><%= bookmark.recipe.description %></p>
+
+                  <!-- Display Rating as Stars -->
+                  <div class="rating mb-2">
+                    <% bookmark.recipe.rating.to_i.times do %>
+                      <i class="fas fa-star text-warning"></i>
+                    <% end %>
+                    <% (5 - bookmark.recipe.rating.to_i).times do %>
+                      <i class="far fa-star text-warning"></i>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="mt-auto">
+                  <p class="fst-italic small">“<%= bookmark.comment %>”</p>
+                  <%= link_to "Remove", category_bookmark_path(@category, bookmark),
+                      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                      class: "btn btn-remove mt-2" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
