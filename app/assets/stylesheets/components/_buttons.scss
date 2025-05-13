@@ -1,17 +1,14 @@
 .btn-remove {
   background-color: transparent;
-  color: transparent;
-  border: 1px solid transparent;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  text-decoration: none;
+  color: #a31427;
+  border: none;
+  padding: 5px 12px;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  position: relative;
 }
 
 .btn-remove:hover {
-  background-color: #db7781;
   color: white;
-  border: 1px solid #a31427;
+  background-color: #a31427;
+  border-radius: 5px;
 }
