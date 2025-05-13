@@ -1,0 +1,25 @@
+.navbar-cookbook {
+  background-color: #fff8f0; // light warm background
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+
+  h1 {
+    font-size: 1.75rem;
+    color: #d35400; // warm orange
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .btn-flat {
+    background-color: transparent;
+    color: #d35400;
+    border: 1px solid #d35400;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #d35400;
+      color: white;
+    }
+  }
+}
