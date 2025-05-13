@@ -34,8 +34,8 @@ Recipe.create!([
   }
 ])
 
-categories = ["Italian recipes", "Breakfast recipes"]
+categories = ["Italian", "Breakfast", "Lunch"]
 
-categories.each do |cat_name|
-  Category.find_or_create_by!(name: cat_name)
+categories.each do |name|
+  Category.find_or_create_by(name: name)
 end

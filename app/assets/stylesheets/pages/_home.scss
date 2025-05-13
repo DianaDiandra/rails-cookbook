@@ -1,1 +1,70 @@
 // Specific CSS for your home-page
+.list-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem 0 2rem;
+}
+
+.list-info-text {
+  font-size: 1.2rem;
+  color: #5c2708;
+  font-weight: bold;
+}
+
+.btn-category {
+  background-color: #e7975e;
+  color: #4e1e06;
+  border: 1px solid #885330;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #be6f37;
+    color: white;
+  }
+}
+
+.category-link {
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+
+  &:hover {
+    color: #532206;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.692);
+  }
+}
+
+.category-grid {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .category-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+}
