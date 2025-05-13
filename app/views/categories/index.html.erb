@@ -5,25 +5,27 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="list-info mt-5 mb-4">
-    <h3 class="list-info-text mb-0">List of categories</h3>
-    <%= link_to "New category", new_category_path, class: "btn btn-category" %>
-  </div>
+<div class="home-wrapper py-2">
+  <div class="container">
+    <div class="list-info mt-5 mb-4">
+      <h3 class="list-info-text mb-0">List of categories</h3>
+      <%= link_to "New category", new_category_path, class: "btn btn-category" %>
+    </div>
 
-  <div class="cards">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <% @categories.each do |category| %>
-        <div class="col">
-          <div class="category-grid position-relative text-center text-white"
-            style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg');">
-            <div class="category-content">
-              <%= link_to category.name, category_path(category), class: "category-link stretched-link" %>
-              <p class="mb-0"><%= category.bookmarks.count %> recipes</p>
+    <div class="cards">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @categories.each do |category| %>
+          <div class="col">
+            <div class="category-grid position-relative text-center text-white"
+              style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg');">
+              <div class="category-content">
+                <%= link_to category.name, category_path(category), class: "category-link stretched-link" %>
+                <p class="mb-0"><%= category.bookmarks.count %> recipes</p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
