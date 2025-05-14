@@ -1,7 +1,7 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path("l0fcmapbnkg3kp65uoyl", width: 1200, height: 400, crop: :fill, gravity: :center) %>)">
   <div class="text-center">
     <h2 class="mb-2">Cookbook</h2>
-    <p>Save your favourites recipes</p>
+    <p>Save your favourite recipes</p>
   </div>
 </div>
 
@@ -16,9 +16,9 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% @categories.each do |category| %>
           <div class="col">
-            <div class="category-grid position-relative text-center text-white"
-              style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg');">
-              <div class="category-content">
+            <div class="category-grid position-relative text-center text-white">
+              <%= image_tag(url_for(category.photo), width: 400, height: 300, alt: category.name) if category.photo.attached? %>
+              <div class="category-content position-absolute top-50 start-50 translate-middle text-center">
                 <%= link_to category.name, category_path(category), class: "category-link stretched-link" %>
                 <p class="mb-0"><%= category.bookmarks.count %> recipes</p>
               </div>
